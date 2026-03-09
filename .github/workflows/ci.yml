@@ -44,5 +44,5 @@ jobs:
       - name: Run tests
         run: |
          export PYTHONPATH=$PYTHONPATH:$(pwd)
-         docker compose run fastapi pytest --maxfail=1 --disable-warnings -q
+         pytest --maxfail=1 --disable-warnings -q
 
