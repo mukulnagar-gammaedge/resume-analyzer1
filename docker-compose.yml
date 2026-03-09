@@ -24,6 +24,7 @@ services:
 
   fastapi:
     build: .
+    image : fastapi_app
     environment:
       - PYTHONPATH=/app
     container_name: fastapi_app
@@ -42,6 +43,7 @@ services:
 
   celery:
     build: .
+    image : celery_worker
     container_name: celery_worker
     command: celery -A app.workers.celery_app.celery_app worker --loglevel=info
     volumes:
