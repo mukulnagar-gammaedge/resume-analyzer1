@@ -41,5 +41,12 @@ jobs:
       # Uncomment if you want migrations before tests
       # - name: Run Alembic migrations
       #   run: alembic upgrade head
+
+      - name: Build Docker Image
+        run: docker compose Build
+        
+      - name: start services
+        run: docker compose up 
+        
       - name: Run test
         run: docker compose run fastapi pytest -v
