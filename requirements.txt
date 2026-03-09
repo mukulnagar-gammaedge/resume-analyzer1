@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic-settings
+SQLAlchemy>=2.0
+asyncpg
+alembic
+psycopg2-binary
+celery
+redis
+psycopg2-binary
+pdfplumber
+groq
+python-multipart
+pytest
+httpx
+pytest-asyncio
