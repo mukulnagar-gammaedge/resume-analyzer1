@@ -36,6 +36,7 @@ async def fake_job():
 
 
 import pytest
+from unittest.mock import patch
 
 @pytest.fixture
 def sample_pdf(tmp_path):
@@ -49,3 +50,12 @@ def fake_job_id():
     """Provide a fake job ID for testing job status endpoint."""
     return "test-job-123"
 
+
+@pytest.fixture(autouse=True)
+def mock_celery_delay():
+    """
+    Automatically mock process_resume.delay so tests don't depend on Redis/Celery.
+    """
+    with patch("app.routes.process_resume.delay") as mocked:
+        mocked.return_value.id = "fake-job-id"
+        yield mocked
