@@ -10,14 +10,14 @@ jobs:
 
     services:
       postgres:
-        image:postgres:16
+        image: postgres:15
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 12345678
-          POSTGRES_DB: resume_db1
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: resume_test
         ports:
           - 5432:5432
-    
+          
     redis:
       image:redis:7
       ports
