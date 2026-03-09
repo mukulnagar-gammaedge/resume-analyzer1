@@ -56,6 +56,6 @@ def mock_celery_delay():
     """
     Automatically mock process_resume.delay so tests don't depend on Redis/Celery.
     """
-    with patch("app.routes.process_resume.delay") as mocked:
+    with patch("app.api.routes.process_resume.delay") as mocked:
         mocked.return_value.id = "fake-job-id"
         yield mocked
