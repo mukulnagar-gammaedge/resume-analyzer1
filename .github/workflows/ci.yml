@@ -42,10 +42,7 @@ jobs:
       # - name: Run Alembic migrations
       #   run: alembic upgrade head
 
-      - name: Run tests inside container
+      - name: Run tests
         run: |
-          docker run --rm \
-            --network host \
-            -e DATABASE_URL=postgresql+asyncpg://postgres:12345678@postgres:5432/resume_db1 \
-            -e REDIS_URL=redis://redis:6379/0 \
-            resume-analyzer:ci pytest --maxfail=1 --disable-warnings -q
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest --maxfail=1 --disable-warnings -q
