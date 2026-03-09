@@ -44,5 +44,5 @@ jobs:
       - name: running test
         run: |
           pip install pytest
-          pytest 
+          docker compose run fastapi pytest --maxfail=1 --disable-warnings -q
 
