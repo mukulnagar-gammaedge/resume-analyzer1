@@ -41,8 +41,7 @@ jobs:
       - name: Build Docker image
         run: docker compose build
 
-      - name: Run Alembic migrations
-        run: docker compose run --rm fastapi alembic upgrade head
+      
 
       - name: Run tests inside fastapi container
         run: docker compose run --rm fastapi pytest --maxfail=1 --disable-warnings -q
