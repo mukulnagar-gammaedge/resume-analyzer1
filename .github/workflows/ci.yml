@@ -41,8 +41,8 @@ jobs:
       # Uncomment if you want migrations before tests
       # - name: Run Alembic migrations
       #   run: alembic upgrade head
-      - name: Run tests
+      - name: running test
         run: |
-         export PYTHONPATH=$PYTHONPATH:$(pwd)
-         pytest --maxfail=1 --disable-warnings -q
+          pip install pytest
+          pytest 
 
