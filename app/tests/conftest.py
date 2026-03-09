@@ -34,32 +34,7 @@ async def fake_job():
 
  # ye code syncly operate krne ke liye 
 
-'''
-import pytest
-from sqlalchemy import insert
-from app.db import async_session
-from app.db.models import Job
 
-@pytest.fixture
-def fake_job_id():
-    return "test-job-123"
-
-@pytest.fixture(autouse=True)
-async def setup_fake_job(fake_job_id):
-    async with async_session() as session:
-        stmt = insert(Job).values(
-            id=fake_job_id,
-            status="PENDING",
-            original_filename="sample.pdf",
-            stored_path="/fake/path/sample.pdf",
-            content_type="application/pdf",
-            extracted_text="Fake resume text",
-            score=0,
-            analysis_json={"strengths": [], "overall_score": 0}
-        )
-        await session.execute(stmt)
-        await session.commit()
-'''
 import pytest
 
 @pytest.fixture

@@ -45,8 +45,9 @@ jobs:
        # run: |
         #  pip install pytest
          # docker compose run fastapi pytest -v
-      - name: Build Docker image
-        run: docker compose build
+      - name: Run tests
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          export BASE_URL=""  
+          pytest --maxfail=1 --disable-warnings -q
 
-      - name: Run tests inside fastapi container
-        run: docker compose run --rm fastapi pytest --maxfail=1 --disable-warnings -q
