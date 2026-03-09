@@ -29,9 +29,9 @@ jobs:
       - name: Build and Push Images
         run: |
           docker compose build
-          docker tag fastapi_app mukulnagar25/fastapi-app1:latest
-          docker tag celery_worker mukulnagar25/fastapi-worker1:latest
-          docker push mukulnagar25/fastapi-app1:latest
-          docker push mukulnagar25/fastapi-worker1:latest
+          docker tag fastapi_app mukulnagar25/fastapi-app:latest
+          docker tag celery_worker mukulnagar25/fastapi-worker:latest
+          docker push mukulnagar25/fastapi-app:latest
+          docker push mukulnagar25/fastapi-worker:latest
 
   
