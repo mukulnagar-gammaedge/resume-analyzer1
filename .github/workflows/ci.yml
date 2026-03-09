@@ -41,8 +41,5 @@ jobs:
       # Uncomment if you want migrations before tests
       # - name: Run Alembic migrations
       #   run: alembic upgrade head
-
-      - name: Run tests
-        run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
-          pytest --maxfail=1 --disable-warnings -q
+      - name: Run test
+        run: docker compose run fastapi pytest -v
