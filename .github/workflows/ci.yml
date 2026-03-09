@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches:[main,master]
+    branches:
+      - main 
+
 
 jobs:
   test:
@@ -12,9 +14,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: user
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: resume_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 12345678
+          POSTGRES_DB: resume_db1
         ports:
           - 5432:5432
 
