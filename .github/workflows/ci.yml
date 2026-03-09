@@ -41,8 +41,12 @@ jobs:
       # Uncomment if you want migrations before tests
       # - name: Run Alembic migrations
       #   run: alembic upgrade head
-      - name: running test
-        run: |
-          pip install pytest
-          docker compose run fastapi pytest -v
+      #- name: running test
+       # run: |
+        #  pip install pytest
+         # docker compose run fastapi pytest -v
+      - name: Build Docker image
+        run: docker compose build
 
+      - name: Run tests inside fastapi container
+        run: docker compose run --rm fastapi pytest --maxfail=1 --disable-warnings -q
