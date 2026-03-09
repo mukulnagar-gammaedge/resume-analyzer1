@@ -38,16 +38,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Uncomment if you want migrations before tests
-      # - name: Run Alembic migrations
-      #   run: alembic upgrade head
-      #- name: running test
-       # run: |
-        #  pip install pytest
-         # docker compose run fastapi pytest -v
-      - name: Run tests
-        run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
-          export BASE_URL=""  
-          pytest --maxfail=1 --disable-warnings -q
+      - name: Build Docker image
+        run: docker compose build
+
+      - name: Run Alembic migrations
+        run: docker compose run --rm fastapi alembic upgrade head
+
+      - name: Run tests inside fastapi container
+        run: docker compose run --rm fastapi pytest --maxfail=1 --disable-warnings -q
+
 
