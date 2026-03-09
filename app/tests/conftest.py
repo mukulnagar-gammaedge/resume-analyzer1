@@ -19,9 +19,9 @@ def fake_job_id():
     return "test-job-123"
 
 
-@pytest.fixture(autouse=True)
+'''@pytest.fixture(autouse=True)
 def mock_celery_delay():
     
     with patch("app.api.routes.process_resume.delay") as mocked:
         mocked.return_value.id = "fake-job-id"
-        yield mocked
+        yield mocked'''
